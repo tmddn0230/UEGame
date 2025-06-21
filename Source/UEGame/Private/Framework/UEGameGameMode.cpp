@@ -2,6 +2,7 @@
 
 #include "Framework/UEGameGameMode.h"
 #include "Framework/UEGameCharacter.h"
+#include "Framework/UEGamePlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 
 AUEGameGameMode::AUEGameGameMode()
@@ -12,4 +13,7 @@ AUEGameGameMode::AUEGameGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	PlayerControllerClass = AUEGamePlayerController::StaticClass();
+
 }

@@ -14,4 +14,10 @@ class UEGAME_API AUEGamePlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+
+protected:
+	virtual void BeginPlay() override;
+
+
+
 };

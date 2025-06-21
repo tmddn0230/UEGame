@@ -3,3 +3,8 @@
 
 #include "Framework/UEGamePlayerController.h"
 
+void AUEGamePlayerController::BeginPlay()
+{
+    
+
+}
