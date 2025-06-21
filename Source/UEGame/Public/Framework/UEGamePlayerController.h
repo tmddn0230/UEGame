@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "UEGamePlayerController.generated.h"
 
+class AUEGameFollowCam;
 /**
  * 
  */
@@ -14,6 +15,10 @@ class UEGAME_API AUEGamePlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera")
+	AUEGameFollowCam* FollowCam;
+
 
 protected:
 	virtual void BeginPlay() override;
