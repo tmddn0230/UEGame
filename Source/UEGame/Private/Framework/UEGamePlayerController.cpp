@@ -24,7 +24,13 @@ void AUEGamePlayerController::BeginPlay()
 
     if (FollowCam)
     {
+        // ∫‰≈∏∞Ÿ∏∏ πŸ≤€¥Ÿ
         bAutoManageActiveCameraTarget = false;
         SetViewTargetWithBlend(FollowCam, 0.f);
     }
+
+
+
+    FInputModeGameOnly InputMode;
+    SetInputMode(InputMode);
 }

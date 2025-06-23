@@ -29,7 +29,7 @@ public:
 	//UPROPERTY(ReplicatedUsing = OnRep_TowerActor)
 	UPROPERTY(EditAnywhere) AUEGameTower*	TowerActor;					// 빌보드 할 타워
 	UPROPERTY(EditAnywhere) float   DistanceFromChar = 600.f;   // 캐릭터와의 거리 
-	UPROPERTY(EditAnywhere) float   HeightOffset = 200.f;		// 높이
+	UPROPERTY(EditAnywhere) float   HeightOffset = 300.f;		// 높이
 
 	// 클라이언트에서 안전하게 캐릭터 인스턴스를 가져오기 위함
 	APlayerController* MyPC;

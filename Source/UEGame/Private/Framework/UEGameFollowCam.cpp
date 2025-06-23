@@ -44,6 +44,7 @@ void AUEGameFollowCam::InitializeCamera()
 void AUEGameFollowCam::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 	if (!TargetCharacter || !TowerActor) return;
 
 	// 1) Calculate Location
