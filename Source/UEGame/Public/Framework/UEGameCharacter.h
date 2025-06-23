@@ -50,7 +50,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Params, meta = (AloowPrivateAccess = "true"))
 	float AxisValue;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Params, meta = (AloowPrivateAccess = "true"))
+	bool IsFire;
 
 public:
 	AUEGameCharacter();

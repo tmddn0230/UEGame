@@ -70,6 +70,7 @@ void AUEGameCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		// Shot
 		EnhancedInputComponent->BindAction(ShotAction, ETriggerEvent::Triggered, this, &AUEGameCharacter::Shot);
+		EnhancedInputComponent->BindAction(ShotAction, ETriggerEvent::Completed, this, &AUEGameCharacter::Shot);
 
 		// Menu
 		EnhancedInputComponent->BindAction(ESCMenuAction, ETriggerEvent::Started, this, &AUEGameCharacter::ESC);
@@ -95,6 +96,7 @@ void AUEGameCharacter::Dash(const FInputActionValue& Value)
 
 void AUEGameCharacter::Shot(const FInputActionValue& Value)
 {
+	IsFire = Value.Get<bool>();
 }
 
 void AUEGameCharacter::ESC(const FInputActionValue& Value)
