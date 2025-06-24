@@ -6,6 +6,10 @@
 #include "Kismet/GameplayStatics.h"
 // Framework
 #include "Framework/UEGameFollowCam.h"
+#include "Framework/UEGameHUD.h"
+// UI
+#include "UI/UEGame_PageBase.h"
+#include "UI/UEGame_PrimaryLayout.h"
 
 void AUEGamePlayerController::BeginPlay()
 {
@@ -33,4 +37,57 @@ void AUEGamePlayerController::BeginPlay()
 
     FInputModeGameOnly InputMode;
     SetInputMode(InputMode);
+}
+
+AUEGameHUD* AUEGamePlayerController::Get_HUD()
+{
+    auto* res = Cast<AUEGameHUD>(GetHUD());
+    return res;
+}
+
+TWeakObjectPtr<UUEGame_PrimaryLayout> AUEGamePlayerController::Get_Primary_Layout()
+{
+	return TWeakObjectPtr<UUEGame_PrimaryLayout>();
+}
+
+UUEGame_PageBase* AUEGamePlayerController::Open_Popup(const FName& InName)
+{
+	if (auto* hud = Get_HUD()) {
+		return hud->Open_Page(InName, true);
+	}
+	else {
+		TWeakObjectPtr<UUEGame_PrimaryLayout> primary_layout = Get_Primary_Layout();
+		if (primary_layout.IsValid()) {
+			primary_layout.Get()->Open_Page(InName, true, this, nullptr);
+		}
+	}
+	return nullptr;
+}
+
+UUEGame_PageBase* AUEGamePlayerController::Open_Page(const FName& InName)
+{
+	if (auto* hud = Get_HUD()) {
+		return hud->Open_Page(InName, false);
+	}
+	else {
+		TWeakObjectPtr<UUEGame_PrimaryLayout> primary_layout = Get_Primary_Layout();
+		if (primary_layout.IsValid()) {
+			primary_layout.Get()->Open_Page(InName, false, this, nullptr);
+		}
+	}
+	return nullptr;
+}
+
+bool AUEGamePlayerController::Close_Popup(UUEGame_PageBase* InPage)
+{
+	if (auto* hud = Get_HUD()) {
+		return hud->Close_Popup(InPage);
+	}
+	else {
+		TWeakObjectPtr<UUEGame_PrimaryLayout> primary_layout = Get_Primary_Layout();
+		if (primary_layout.IsValid()) {
+			primary_layout.Get()->Close_Popup(InPage);
+		}
+	}
+	return false;
 }
