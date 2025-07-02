@@ -3,6 +3,7 @@
 #include "Framework/UEGameGameMode.h"
 #include "Framework/UEGameCharacter.h"
 #include "Framework/UEGamePlayerController.h"
+#include "Framework/UEGameHUD.h"
 #include "UObject/ConstructorHelpers.h"
 
 AUEGameGameMode::AUEGameGameMode()
@@ -15,5 +16,5 @@ AUEGameGameMode::AUEGameGameMode()
 	}
 
 	PlayerControllerClass = AUEGamePlayerController::StaticClass();
-
+	HUDClass			  = AUEGameHUD::StaticClass();
 }

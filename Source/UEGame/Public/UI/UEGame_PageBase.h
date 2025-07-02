@@ -20,7 +20,7 @@ class UEGAME_API UUEGame_PageBase : public UUEGame_UserWidget
 public:
 
 	// Function
-	//virtual void Post_OpenPage();
+	virtual void Post_OpenPage();
 	//virtual void Close_Page();
 	
 	// BP Called

@@ -9,6 +9,9 @@
 // UI
 #include "UI/UEGame_PrimaryLayout.h"
 #include "UI/UEGame_PageBase.h"
+// Data
+#include "Data/UEGameDataAsset.h"
+
 
 DEFINE_LOG_CATEGORY(LogUGHUD);
 
@@ -60,22 +63,22 @@ void AUEGameHUD::Open_HUD_Widget()
 	auto* pc = GetOwningPlayerController();
 	if (auto* mgr = Get_GameManager()) {
 
-		//if (auto ModeDefinition = mgr->ModeDefinition.Get()) {
-		//	auto play_type = mgr->Get_Play_Type();
-		//
-		//	auto mode = ModeDefinition->Get_Mode(play_type);
-		//
-		//	if (mode.UI_Name != NAME_None) {
-		//		res = Open_Page(mode.UI_Name, false);
-		//		if (res) {
-		//			res->Post_OpenPage();
-		//		}
-		//		else {
-		//			UE_LOG(LogUGHUD, Warning, TEXT("Widget is missing or URt_PageBase is not a parent class"));
-		//		}
-		//	}
-		//	GetOwningPlayerController()->SetShowMouseCursor(mode.ShowMouseCursor);
-		//}
+		if (auto ModeDefinition = mgr->ModeDefinition.Get()) {
+			auto play_type = mgr->Get_Play_Type();
+		
+			auto mode = ModeDefinition->Get_Mode(play_type);
+		
+			if (mode.UI_Name != NAME_None) {
+				res = Open_Page(mode.UI_Name, false);
+				if (res) {
+					res->Post_OpenPage();
+				}
+				else {
+					UE_LOG(LogUGHUD, Warning, TEXT("Widget is missing or UUEGame_PageBase is not a parent class"));
+				}
+			}
+			GetOwningPlayerController()->SetShowMouseCursor(mode.ShowMouseCursor);
+		}
 	}
 }
 

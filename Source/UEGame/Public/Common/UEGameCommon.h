@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
+#include "UEGameCommon.generated.h"
 /**
  * Commons
  */
@@ -43,6 +43,35 @@ enum class EUEGame_MessageResult : uint8
 };
 
 DECLARE_DELEGATE_OneParam(FUEGameDele_MessagResult, EUEGame_MessageResult /* Result */);
+
+
+/* RPC */
+USTRUCT(BlueprintType)
+struct  FUGSkillInfo
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString CharacterName; // character 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 PlayerNum;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 CoolTime;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString Destination;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UObject* Thumbnail;
+	
+	FUGSkillInfo() :
+		CharacterName(""),
+		PlayerNum(1),
+		CoolTime(60),
+		Destination(""),
+		Thumbnail(nullptr)
+	{
+	}
+};
 
 
 class UEGAME_API UEGameCommon

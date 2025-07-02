@@ -6,6 +6,13 @@
 
 
 
+void UUEGame_PageBase::Post_OpenPage()
+{
+	// 페이지를 연 다음 처리할 코드 
+	// ex > UMG Animation 
+	//      Sounds 
+}
+
 UUEGame_PageBase* UUEGame_PageBase::BPCall_Open_Popup(const FName& InName)
 {
 	return Open_Popup(InName);
